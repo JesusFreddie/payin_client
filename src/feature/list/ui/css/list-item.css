@@ -1,0 +1,65 @@
+.payin-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  transition: all 0.2s;
+}
+
+.payin-item:hover {
+  border-color: #4299e1;
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.1);
+}
+
+.payin-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ebf8ff;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.payin-content {
+  flex: 1;
+}
+
+.payin-number {
+  margin: 0;
+  font-weight: 500;
+  font-size: 15px;
+  color: #2d3748;
+}
+
+.payin-id {
+  font-size: 12px;
+  color: #718096;
+}
+
+.payin-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-active {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.status-pending {
+  background: #fefcbf;
+  color: #744210;
+}
+
+.status-error {
+  background: #fed7d7;
+  color: #9b2c2c;
+}
