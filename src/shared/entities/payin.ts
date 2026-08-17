@@ -1,4 +1,4 @@
-export type Item = {
+export type Payin = {
   id: string
   num: string
 }

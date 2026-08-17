@@ -1,29 +1,27 @@
-import { createSignal, onMount } from "solid-js";
-import getList from "../model/get-list";
-import { match, none, Option } from "fp-ts/lib/Option";
+import { match } from "fp-ts/lib/Option";
 import { pipe } from "fp-ts/lib/function";
-import { Item } from "../model/item";
-import ListItem from "./list-item";
+import Load from "../../../shared/ui/load/load";
+import { GetListData } from "../../../shared/invokes/getList/data";
+import Item from "./item";
 
-export default () => {
-  const { fetch } = getList();
-  const [list, setList] = createSignal<Option<Item[]>>(none);
+type Props = {
+  loading: boolean
+  list: GetListData
+}
 
-  onMount(async () => {
-    const result = await fetch({});
-    setList(result);
-  });
-
+export default ({ list, loading }: Props) => {
   return (
     <>
       <h3>Счета: </h3>
-      {pipe(
-        list(),
-        match(
-          () => <>Payin not fetching</>,
-          (items) => items.map((item) => <ListItem item={item} />),
-        ),
-      )}
+      {loading ? <Load/>
+        :pipe(
+          list,
+          match(
+            () => <>Payin not fetching</>,
+            (items) => items.map((item) => <Item item={item} />),
+          ),
+        )
+      }
     </>
   );
 };
