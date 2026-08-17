@@ -13,6 +13,7 @@ export const createListResource = (query: GetListQuery): Result => {
     () => ({ query: query }),
     async ({ query }) => {
       const result = await getListCommand(query);
+      console.log(result)
       return result;
     }
   )
